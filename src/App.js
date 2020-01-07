@@ -1,31 +1,24 @@
-import React,{ useState , useEffect}  from 'react';
+import React,{ useState }  from 'react';
 
 
 
 function App() {
-    const [seconds, setTime] = useState(0);
-    function tick(e) {
-      setTime(seconds + 1)
-    }
-   
-    useEffect(() => {
-     let  interval = setInterval(() => tick(),1/1000);
-     return () =>  {
-      clearInterval(interval)
-     }
-    })     
-    return (
-      <div>
-        <h1>Delay</h1>
-        <input 
-        value = {seconds} 
-         onChange = {tick}
-         />
-        <h1 >Timer : {seconds} </h1>
-      </div>
-    );
-  }
- 
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <input value = {count}/>
+      <button onClick={() => setCount(count - 1)}>
+        Decrement 
+      </button>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+      <h1> Timer : {count}</h1>
+    </div>
+  );
+}
+
 
 
 export default App;
